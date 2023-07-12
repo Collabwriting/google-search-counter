@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
   "name": "Google Result Counter",
-  "version": "1.0",
+  "version": "1.0.1",
   "description": "Automatically counts your Google search results and displays the number of results in the title of the result.",
-  "permissions": ["activeTab", "scripting", "storage"],
+  "permissions": ["https://google.com", "storage"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
