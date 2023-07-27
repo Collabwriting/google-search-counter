@@ -27,12 +27,14 @@ function toggleCounter() {
       }
       var counter = 1;
       Array.from(document.querySelectorAll(`
-      h3[class]:not(table h3):not(ul h3):not(li h3):not(title-with-lhs-icon h3):not(div.related-question-pair h3)`)).forEach((el) => {
+      h3[class]:not(table h3):not(ul h3):not(li h3):not(title-with-lhs-icon h3):not(div.related-question-pair h3):not(g-section-with-header h3)`)).forEach((el) => {
         const spanElement = document.createElement('span');
         spanElement.id = 'google-search-counter';
         spanElement.textContent = counter + '. ';
 
         el.innerHTML = spanElement.outerHTML + el.innerHTML;
+
+        console.log(el.innerHTML);
         counter++;
       });
     }
