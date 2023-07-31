@@ -14,6 +14,8 @@ function onPageHeightChange() {
 }
 
 function toggleCounter() {
+  if (!window.location.href.includes('google.com')) return;
+
   chrome.storage.local.get('countingEnabled', (result) => {
     const countingEnabled = result.countingEnabled;
 
