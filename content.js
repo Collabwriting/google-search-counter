@@ -20,14 +20,20 @@ function toggleCounter() {
     const countingEnabled = result.countingEnabled;
 
     if (countingEnabled) {
-      var counter = 1;
+
       if (document.getElementById('google-search-counter')) {
         // remove elements with id google-search-counter
         Array.from(document.querySelectorAll('#google-search-counter')).forEach(
           (el) => el.remove()
         );
       }
-      var counter = 1;
+
+      // get start url param
+      const urlParams = new URLSearchParams(window.location.search);
+      const start = Number(urlParams.get('start') ?? 0);
+
+      var counter = start + 1;
+
       Array.from(document.querySelectorAll(`
       h3[class]:not(table h3):not(ul h3):not(li h3):not(title-with-lhs-icon h3):not(div.related-question-pair h3):not(g-section-with-header h3)`)).forEach((el) => {
         const spanElement = document.createElement('span');

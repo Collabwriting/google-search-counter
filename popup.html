@@ -4,48 +4,99 @@
   <title>Google Result Counter</title>
   <style>
     body {
-      width: 200px;
+      width: 250px;
       height: auto;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       border-radius: 10px;
+      padding: 0px;
+      margin: 0px;
+      overflow: clip;
     }
 
-    h3 {
-      font-size: 15px;
+    .header {
+      font-size: 12px;
       font-weight: bold;
-      text-align: center;
+      padding: 4px 8px;
+      background: #ccc;
+      color: #666;
+      width: -webkit-fill-available;
     }
 
-    a {
+    .cta {
       text-decoration: none;
-      color: #ff28a9;
+      color: #FFF;
+      background: #ff5290;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 8px 16px;
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+    .cta:hover {
+      background: #9c1748;
+      transform: scale(1.05);
+      box-shadow: 0px 0px 10px 0px #00000033;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .video-wrapper {
+      width: -webkit-fill-available;
+      padding: 8px;
     }
 
-    a:visited {
-      color: #ff28a9;
+    .video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      width: -webkit-fill-available;
     }
 
-    a:active {
-      color: #ff28a9;
+    .checkbox-item {
+      width: -webkit-fill-available;
+      padding: 8px;
+      padding-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
     }
+
+    .checkbox-item:hover {
+      background: #f0f0f0;
+    }
+
+    .message {
+      font-size: 12px;
+      padding: 8px;
+    }
+
   </style>
 </head>
 <body>
+  <div class="header">
+    Settings
+  </div>
   <!-- toggle counter  button -->
-  <label>
-    <input type="checkbox" id="toggle" />
-    Enable counting
+  <label class="checkbox-item">
+    <span>Enable counting</span>
+    <input class="checkbox" type="checkbox" id="toggle" />
   </label>
-  <h3>Google Result Counter developed by <br>
-    <a href="https://collabwriting.com/" target="_blank">Collabwriting Team</a>
-  </h3>
+
+  <div class="header">
+    Created with &#x2764; by Collabwriting
+  </div>
+  <span class="message">
+    If you like <b>Goolge Results Counter</b> you'll love Collabwriting!
+  </span>
+  <div class="video-wrapper">
+    <video class="video" src="./onboarding-video.mp4" autoplay loop ></video>
+  </div>
+  <a class="cta" target="_blank" href="https://chromewebstore.google.com/detail/collabwriting-shareable-n/jjefmmjicedljonbpdoeceklnhobmolo?utm_source=google-results-counter&utm_medium=popup&utm_campaign=promotion">
+    Try it out!
+  </a>
+
   <script src="popup.js"></script>
 </body>
 </html>
