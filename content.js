@@ -1,4 +1,3 @@
-
 function onPageHeightChange() {
   // if we are not on google.com return
   if (!window.location.href.includes('google.com')) return;
@@ -86,7 +85,24 @@ function toggleCounter() {
           const spanElement = document.createElement('span');
           spanElement.id = 'google-search-counter';
           spanElement.textContent = counter + '. ';
-          el.innerHTML = spanElement.outerHTML + el.innerHTML;
+          
+          // Create a wrapper that preserves all original attributes
+          const wrapper = document.createElement(el.tagName);
+          // Copy all attributes from the original element
+          Array.from(el.attributes).forEach(attr => {
+            wrapper.setAttribute(attr.name, attr.value);
+          });
+          
+          // Add our counter
+          wrapper.appendChild(spanElement);
+          
+          // Move all child nodes from original to wrapper
+          while (el.firstChild) {
+            wrapper.appendChild(el.firstChild);
+          }
+          
+          // Replace original with wrapper
+          el.parentNode.replaceChild(wrapper, el);
 
           counter++;
         });
